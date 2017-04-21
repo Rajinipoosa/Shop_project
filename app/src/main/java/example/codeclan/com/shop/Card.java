@@ -26,4 +26,6 @@ public class Card {
     public double getCardAmount() {
         return cardAmount;
     }
+
+
 }

@@ -29,7 +29,20 @@ public class Customer {
         return this.CustomerName;
     }
 
-    public int getpaymentDetails() {
+    public int getPaymentDetails() {
+
         return paymentlist.size();
+    }
+    public double getTotalMoneyInCard(String creditCard) {
+        double result = 0;
+        for( Card cards : paymentlist) {
+            if (creditCard == cards.getCardType()) {
+                result = cards.getCardAmount();
+
+
+            }
+
+        }
+        return result;
     }
 }

@@ -12,16 +12,18 @@ public class Shop{
 
     private int sales;
     private int refunds;
-    private int totals;
+    private int totalIncome;
 
     public Shop(){
         this.items = new ArrayList<Item>();
         this.customers = new ArrayList<Customer>();
         this.sales =sales;
         this.refunds= refunds;
-        this.totals= totals;
+        this.totalIncome= totalIncome;
 
     }
+
+
 
 }
 

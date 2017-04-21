@@ -28,9 +28,16 @@ public class CustomerTest {
 
     }
     @Test
-    public void getcustomerCardNames() {
-        assertEquals(3, customer.getpaymentDetails());
+    public void getCustomerCardNames() {
+        assertEquals(3, customer.getPaymentDetails());
     }
+    @Test
+    public void getTotalMoneyInCardTest(){
+     System.out.println(customer.getTotalMoneyInCard("CreditCard"));
+
+//        assertEquals(100.0, customer.getTotalMoneyInCard("CreditCard"));
+    }
+
 
 
 }
