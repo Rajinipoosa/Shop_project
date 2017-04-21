@@ -8,13 +8,18 @@ import java.util.ArrayList;
 
 public class Shop{
     private ArrayList<Item> items;
+
     private int sales;
     private int refunds;
     private int totals;
 
     public Shop(){
         this.items = new ArrayList<Item>();
+        this.sales =sales;
+        this.refunds= refunds;
+        this.totals= totals;
 
     }
+
 }
 

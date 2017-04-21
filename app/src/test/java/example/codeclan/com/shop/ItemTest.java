@@ -32,7 +32,7 @@ public class ItemTest {
     }
     @Test
       public void getPriceTest(){
-        assertEquals(5.00,item1.getPrice());
+        assertEquals(5.00,item1.getPrice(),0.01);
     }
      @Test
        public void getQuantityTest(){
@@ -41,7 +41,7 @@ public class ItemTest {
      @Test
     public void setPriceTest(){
          item2.setPrice(2.00);
-         assertEquals(2.00,item2.getPrice());
+         assertEquals(2.00,item2.getPrice(),0.01);
      }
 
 

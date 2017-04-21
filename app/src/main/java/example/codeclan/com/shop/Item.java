@@ -16,8 +16,6 @@ public class Item{
         this.price = price;
         this.quantity=quantity;
         this.tax = tax;
-
-
     }
 
     public String getName() {
