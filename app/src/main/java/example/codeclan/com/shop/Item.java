@@ -23,4 +23,20 @@ public class Item{
     public String getName() {
         return name;
     }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setName(String name) {
+        this.name = "Banana";
+    }
+
+    public void setPrice(double price) {
+        this.price = 2.00;
+    }
 }
