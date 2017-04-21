@@ -7,11 +7,11 @@ package example.codeclan.com.shop;
 public class Card {
     private String cardType;
     private int cardNumber;
-    private double amount;
-    public Card(String cardType,int cardNumber, double amount){
+    private double cardAmount;
+    public Card(String cardType, int cardNumber, double cardAmount){
         this.cardType = cardType;
         this.cardNumber= cardNumber;
-        this.amount = amount;
+        this.cardAmount = cardAmount;
         
     }
 
@@ -21,5 +21,9 @@ public class Card {
 
     public int getCardNumber() {
         return cardNumber;
+    }
+
+    public double getCardAmount() {
+        return cardAmount;
     }
 }

@@ -13,10 +13,13 @@ public class CustomerTest {
 
     Customer customer1;
     Customer customer2;
+    Card paymentDetails;
 
     @Before
     public void before() {
      customer1 = new Customer("Rajini");
+
+
 
 
     }

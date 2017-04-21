@@ -11,14 +11,18 @@ import java.util.StringTokenizer;
 
 public class Customer {
     private String name;
-    private ArrayList<Card> paymentDetails;
+    private ArrayList<Card> paymentlist;
 
 
     public Customer(String name){
         this.name = name;
-        this.paymentDetails= new ArrayList<Card>();
+        paymentlist = new ArrayList<Card>();
+        paymentlist.add(new Card("Creditcard", 1111, 100.0));
+        paymentlist.add(new Card("DebitCard", 4444, 200.00));
+        paymentlist.add(new Card("Master", 5555, 200.00));
 
     }
+
 
 
 }

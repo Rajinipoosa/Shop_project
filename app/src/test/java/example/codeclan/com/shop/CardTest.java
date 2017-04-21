@@ -10,23 +10,27 @@ import static junit.framework.Assert.assertEquals;
  */
 
 public class CardTest {
-    Card card1;
-    Card card2;
+    Card card;
 
       @Before
       public void before(){
-        card1 = new Card("DebitCard", 121212, 12.90);
-        card2 = new Card("CreditCard", 121334, 20.90);
+        card = new Card("DebitCard", 121212, 12.90);
+//        card2 = new Card("CreditCard", 121334, 20.90);
       }
       @Test
         public void getCardTypeTest(){
-        assertEquals("DebitCard",card1.getCardType());
+        assertEquals("DebitCard",card.getCardType());
 
       }
       @Test
         public void getCardNumberTest(){
-        assertEquals(121212, card1.getCardNumber());
+        assertEquals(121212, card.getCardNumber());
       }
+      @Test
+          public void getCardAmountTest(){
+          assertEquals(12.90,card.getCardAmount(),0.01);
+      }
+
 
 
 
