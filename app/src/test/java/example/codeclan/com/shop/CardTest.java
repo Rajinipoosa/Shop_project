@@ -15,8 +15,9 @@ public class CardTest {
       @Before
       public void before(){
         card = new Card("DebitCard", 121212, 12.90);
-//        card2 = new Card("CreditCard", 121334, 20.90);
+//      card2 = new Card("CreditCard", 121334, 20.90);
       }
+
       @Test
         public void getCardTypeTest(){
         assertEquals("DebitCard",card.getCardType());

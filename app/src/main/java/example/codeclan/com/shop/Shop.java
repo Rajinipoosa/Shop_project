@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Shop{
     private ArrayList<Item> items;
+    private ArrayList<Customer> customers;
 
     private int sales;
     private int refunds;
@@ -15,6 +16,7 @@ public class Shop{
 
     public Shop(){
         this.items = new ArrayList<Item>();
+        this.customers = new ArrayList<Customer>();
         this.sales =sales;
         this.refunds= refunds;
         this.totals= totals;
