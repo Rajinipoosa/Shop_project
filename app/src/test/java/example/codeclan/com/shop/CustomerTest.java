@@ -20,7 +20,7 @@ public class CustomerTest {
     @Before
     public void before() {
        customer = new Customer("Rajini");
-       this.paymentDetails = paymentDetails;
+
     }
     @Test
     public void getCustomerNameTest(){
@@ -33,9 +33,9 @@ public class CustomerTest {
     }
     @Test
     public void getTotalMoneyInCardTest(){
-     System.out.println(customer.getTotalMoneyInCard("CreditCard"));
+//     System.out.println(customer.getTotalMoneyInCard("Master"));
 
-//        assertEquals(100.0, customer.getTotalMoneyInCard("CreditCard"));
+       assertEquals(100.0, customer.getTotalMoneyInCard("CreditCard",1111));
     }
 
 

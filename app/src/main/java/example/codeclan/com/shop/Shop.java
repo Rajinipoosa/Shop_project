@@ -12,18 +12,32 @@ public class Shop{
 
     private int sales;
     private int refunds;
-    private int totalIncome;
+    private double totalIncome;
 
-    public Shop(){
+    public Shop(Integer sales, Integer refunds, Double totalIncome) {
+
         this.items = new ArrayList<Item>();
         this.customers = new ArrayList<Customer>();
-        this.sales =sales;
-        this.refunds= refunds;
-        this.totalIncome= totalIncome;
+        this.sales = sales;
+        this.refunds = refunds;
+        this.totalIncome = totalIncome;
 
     }
 
+    public int getShopSales() {
+        return sales;
+    }
 
+    public void setShopSales(int shopSales) {
+        this.sales = shopSales;
+    }
 
+    public int getShopRefunds() {
+        return refunds;
+    }
 }
+
+
+
+
 

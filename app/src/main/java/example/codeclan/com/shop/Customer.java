@@ -20,7 +20,7 @@ public class Customer {
         paymentlist = new ArrayList<Card>();
         paymentlist.add(new Card("CreditCard", 1111, 100.0));
         paymentlist.add(new Card("DebitCard", 4444, 200.00));
-        paymentlist.add(new Card("Master", 5555, 200.00));
+        paymentlist.add(new Card("Master", 5555, 150.90));
 
     }
 
@@ -33,14 +33,12 @@ public class Customer {
 
         return paymentlist.size();
     }
-    public double getTotalMoneyInCard(String creditCard) {
+    public double getTotalMoneyInCard(String creditCard, int cardNumber) {
         double result = 0;
         for( Card cards : paymentlist) {
-            if (creditCard == cards.getCardType()) {
+            if (creditCard == cards.getCardType() && cardNumber == cards.getCardNumber() ) {
                 result = cards.getCardAmount();
-
-
-            }
+             }
 
         }
         return result;
