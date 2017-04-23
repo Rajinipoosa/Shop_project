@@ -16,6 +16,7 @@ public class CustomerTest {
 
     Customer customer;
     Card paymentDetails;
+    PurchasedItems purchasedItems;
 
     @Before
     public void before() {
@@ -36,6 +37,10 @@ public class CustomerTest {
 //     System.out.println(customer.getTotalMoneyInCard("Master"));
 
        assertEquals(100.0, customer.getTotalMoneyInCard("CreditCard",1111));
+    }
+    @Test
+    public void getCustomerPurchasedDetailsTest(){
+        assertEquals(1,customer.getCustomerPurchasedDetails().size());
     }
 
 

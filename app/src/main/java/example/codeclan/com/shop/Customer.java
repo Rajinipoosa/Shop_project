@@ -13,6 +13,7 @@ import java.util.StringTokenizer;
 public class Customer {
     private String CustomerName;
     private ArrayList<Card> paymentlist;
+    private ArrayList<PurchasedItems> purchasedItems;
 
 
     public Customer(String name){
@@ -21,6 +22,8 @@ public class Customer {
         paymentlist.add(new Card("CreditCard", 1111, 100.0));
         paymentlist.add(new Card("DebitCard", 4444, 200.00));
         paymentlist.add(new Card("Master", 5555, 150.90));
+        purchasedItems = new ArrayList<PurchasedItems>();
+        purchasedItems.add(new PurchasedItems("Book",5.00));
 
     }
 
@@ -43,4 +46,13 @@ public class Customer {
         }
         return result;
     }
+
+
+    public ArrayList<PurchasedItems> getCustomerPurchasedDetails(){
+        return purchasedItems;
+    }
+
+
+
+
 }

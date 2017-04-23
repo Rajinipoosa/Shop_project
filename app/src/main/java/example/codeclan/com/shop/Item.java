@@ -9,13 +9,13 @@ public class Item{
     private String name ;
     private double price;
     private int quantity;
-    private double tax;
 
-    public  Item(String name,double price,Integer quantity, double tax){
+
+    public  Item(String name,double price,Integer quantity){
         this.name = name;
         this.price = price;
         this.quantity=quantity;
-        this.tax = tax;
+
     }
 
     public String getName() {
