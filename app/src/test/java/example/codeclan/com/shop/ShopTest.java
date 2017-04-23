@@ -18,11 +18,13 @@ public class ShopTest {
     Customer customers;
     PurchasedItems purchasedItems;
 
+
     @Before
     public void before() {
         shop = new Shop(10, 5, 100.00);
          items = new Item("chocalate", 5.00, 10);
         customers = new Customer("Rajini");
+
 
     }
 
