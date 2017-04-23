@@ -28,4 +28,11 @@ public class Card {
     }
 
 
+    public void setCardAmount(double cardAmount) {
+        this.cardAmount = cardAmount;
+    }
+
+    public void setCardNumber(int cardNumber) {
+        this.cardNumber = cardNumber;
+    }
 }

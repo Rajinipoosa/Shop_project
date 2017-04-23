@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by user on 21/04/2017.
  */
 
-public class Shop{
+public class Shop {
     private ArrayList<Item> items;
     private ArrayList<Customer> customers;
     private ArrayList<PurchasedItems> purchasedItems;
@@ -25,6 +25,7 @@ public class Shop{
         this.refunds = refunds;
         this.totalIncome = totalIncome;
         this.purchasedItems = new ArrayList<PurchasedItems>();
+
 
     }
 
@@ -50,17 +51,26 @@ public class Shop{
 
     public double setShopTotalIncome(double shopTotalIncome) {
         this.totalIncome = shopTotalIncome;
-        return  totalIncome;
+        return totalIncome;
     }
 
-    public void addTheSaleItemToCustomer(String name,Item items) {
-        double total = 0;
-        for(Customer customer : customers) {
-            if(customer.getCustomerName() == name){
+    public void addTheSaleItemToCustomer(String name, Item items) {
 
-                double value = customer.getTotalMoneyInCard("CreditCard",1111);
+         double result = 0;
 
-                 total = value - items.getPrice();
+
+        for (Customer customer : customers) {
+
+            if (customer.getCustomerName() == name) {
+
+                double value = customer.getTotalMoneyInCard("CreditCard", 1111);
+
+                 result = value - items.getPrice();
+
+
+
+
+
 
 
 
@@ -69,9 +79,11 @@ public class Shop{
 
         }
 
+
+
+
     }
 }
-
 
 
 

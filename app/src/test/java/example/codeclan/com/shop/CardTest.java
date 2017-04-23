@@ -32,7 +32,16 @@ public class CardTest {
           assertEquals(12.90,card.getCardAmount(),0.01);
       }
 
-
+      @Test
+        public void setCardAmountTest(){
+          card.setCardAmount(12.00);
+          assertEquals(12.00,card.getCardAmount());
+      }
+       @Test
+    public void SetCardNumberTest(){
+           card.setCardNumber(5555);
+           assertEquals(5555,card.getCardNumber());
+       }
 
 
 }

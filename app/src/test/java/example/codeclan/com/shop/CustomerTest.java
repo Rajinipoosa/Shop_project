@@ -32,17 +32,24 @@ public class CustomerTest {
     public void getCustomerCardNames() {
         assertEquals(3, customer.getPaymentDetails());
     }
+
     @Test
     public void getTotalMoneyInCardTest(){
 //     System.out.println(customer.getTotalMoneyInCard("Master"));
 
        assertEquals(100.0, customer.getTotalMoneyInCard("CreditCard",1111));
     }
+
     @Test
     public void getCustomerPurchasedDetailsTest(){
         assertEquals(1,customer.getCustomerPurchasedDetails().size());
     }
 
+    @Test
+    public void UpdateTotalMoneyInCardTest(){
+//        System.out.println(customer.UpdateTotalMoneyInCard("CreditCard",1111,50.00));
+      assertEquals(50.00,customer.UpdateTotalMoneyInCard("CreditCard",1111,50.00));
+    }
 
 
 }

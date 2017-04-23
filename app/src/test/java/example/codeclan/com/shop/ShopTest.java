@@ -60,8 +60,8 @@ public class ShopTest {
     }
    @Test
     public void getMakeASale(){
-       shop.addTheSaleItemToCustomer("Rajini",items);
 
+       shop.addTheSaleItemToCustomer("Rajini",items);
 
     }
 }

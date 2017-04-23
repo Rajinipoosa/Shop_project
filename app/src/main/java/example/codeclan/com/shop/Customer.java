@@ -53,6 +53,13 @@ public class Customer {
     }
 
 
-
-
+    public double UpdateTotalMoneyInCard(String creditCard, int cardNumber, double amount) {
+        double result = 0;
+        for( Card cards : paymentlist) {
+            if (creditCard == cards.getCardType() && cardNumber == cards.getCardNumber() ) {
+                result = cards.getCardAmount() - amount;
+            }
+        }
+        return result;
+    }
 }
