@@ -83,6 +83,11 @@ public class ShopTest {
 
 
         }
+    @Test
+    public void reportTotalIncomeTest(){
+
+        assertEquals(105.0,shop.reportTotalIncomeTest());
+    }
 
 
     }

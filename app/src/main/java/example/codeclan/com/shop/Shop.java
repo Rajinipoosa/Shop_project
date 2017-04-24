@@ -80,8 +80,8 @@ public class Shop {
          value  = item.getQuantity() - 1;
         purchasedItems.add(new PurchasedItems(item.getId(),item.getName(),item.getPrice()));
         sales = sales + 1;
+         setShopSales(sales);
         return result;
-
     }
 
 
@@ -94,6 +94,15 @@ public class Shop {
        result = customer.refundItem(item.getPrice());
         purchasedItems.remove(item);
         refunds = refunds + 1;
+        setShopRefunds(refunds);
+
+
+    }
+
+    public double reportTotalIncomeTest() {
+        totalIncome = totalIncome + (getShopSales() - getShopRefunds());
+        return totalIncome;
+
     }
 }
 
