@@ -14,7 +14,7 @@ import static junit.framework.Assert.assertEquals;
 public class ShopTest {
     Shop shop;
     Item items;
-
+     Card card;
     Customer customers;
     PurchasedItems purchasedItems;
 
@@ -24,6 +24,8 @@ public class ShopTest {
         shop = new Shop(10, 5, 100.00);
          items = new Item("chocalate", 5.00, 10);
         customers = new Customer("Rajini");
+        card = new Card("CreditCard", 1111, 100.0);
+
 
 
     }
@@ -60,12 +62,13 @@ public class ShopTest {
        assertEquals(200.00,shop.getShopTotalIncome());
 
     }
-   @Test
-    public void getMakeASale(){
-
-       shop.addTheSaleItemToCustomer("Rajini",items);
-
-    }
+//   @Test
+//    public void getMakeASale(){
+//
+//
+//         assertEquals(95,shop.addTheSaleItemToCustomer("Rajini",items,card));
+//
+//    }
 }
 
 

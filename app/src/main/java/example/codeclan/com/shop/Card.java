@@ -28,8 +28,8 @@ public class Card {
     }
 
 
-    public void setCardAmount(double cardAmount) {
-        this.cardAmount = cardAmount;
+    public double setCardAmount(double Amount) {
+        return cardAmount = Amount;
     }
 
     public void setCardNumber(int cardNumber) {

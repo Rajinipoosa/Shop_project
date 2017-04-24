@@ -14,16 +14,16 @@ public class Customer {
     private String CustomerName;
     private ArrayList<Card> paymentlist;
     private ArrayList<PurchasedItems> purchasedItems;
-
+    private Card preferredCardDetails;
 
     public Customer(String name){
         this.CustomerName = name;
         paymentlist = new ArrayList<Card>();
         paymentlist.add(new Card("CreditCard", 1111, 100.0));
         paymentlist.add(new Card("DebitCard", 4444, 200.00));
-        paymentlist.add(new Card("Master", 5555, 150.90));
         purchasedItems = new ArrayList<PurchasedItems>();
         purchasedItems.add(new PurchasedItems("Book",5.00));
+        this.preferredCardDetails = preferredCardDetails;
 
     }
 
@@ -36,30 +36,15 @@ public class Customer {
 
         return paymentlist.size();
     }
-    public double getTotalMoneyInCard(String creditCard, int cardNumber) {
-        double result = 0;
-        for( Card cards : paymentlist) {
-            if (creditCard == cards.getCardType() && cardNumber == cards.getCardNumber() ) {
-                result = cards.getCardAmount();
-             }
 
-        }
-        return result;
+
+    public double getTotalMoneyInCard(Card preferredCardDetails) {
+
+        return preferredCardDetails.getCardAmount();
     }
 
 
-    public ArrayList<PurchasedItems> getCustomerPurchasedDetails(){
-        return purchasedItems;
-    }
-
-
-    public double UpdateTotalMoneyInCard(String creditCard, int cardNumber, double amount) {
-        double result = 0;
-        for( Card cards : paymentlist) {
-            if (creditCard == cards.getCardType() && cardNumber == cards.getCardNumber() ) {
-                result = cards.getCardAmount() - amount;
-            }
-        }
-        return result;
+    public double setTotalMoneyInCard(Card preferredCardDetails, double updateMoney) {
+        return preferredCardDetails.setCardAmount(updateMoney);
     }
 }

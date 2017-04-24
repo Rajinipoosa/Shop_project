@@ -17,10 +17,13 @@ public class CustomerTest {
     Customer customer;
     Card paymentDetails;
     PurchasedItems purchasedItems;
+    Card preferredCardDetails;
 
     @Before
     public void before() {
        customer = new Customer("Rajini");
+        preferredCardDetails = new Card("DebitCard",4444,200.00);
+
 
     }
     @Test
@@ -29,27 +32,23 @@ public class CustomerTest {
 
     }
     @Test
-    public void getCustomerCardNames() {
-        assertEquals(3, customer.getPaymentDetails());
+    public void getCustomerCardNamesTest() {
+        assertEquals(2, customer.getPaymentDetails());
     }
+
 
     @Test
     public void getTotalMoneyInCardTest(){
-//     System.out.println(customer.getTotalMoneyInCard("Master"));
 
-       assertEquals(100.0, customer.getTotalMoneyInCard("CreditCard",1111));
-    }
+        assertEquals(200.00,customer.getTotalMoneyInCard(preferredCardDetails));
 
-    @Test
-    public void getCustomerPurchasedDetailsTest(){
-        assertEquals(1,customer.getCustomerPurchasedDetails().size());
     }
+   @Test
+    public void updateTotalMoneyCardTest(){
+       customer.setTotalMoneyInCard(preferredCardDetails,100.00);
+       assertEquals(100.00,customer.getTotalMoneyInCard(preferredCardDetails));
 
-    @Test
-    public void UpdateTotalMoneyInCardTest(){
-//        System.out.println(customer.UpdateTotalMoneyInCard("CreditCard",1111,50.00));
-      assertEquals(50.00,customer.UpdateTotalMoneyInCard("CreditCard",1111,50.00));
-    }
+   }
 
 
 }
