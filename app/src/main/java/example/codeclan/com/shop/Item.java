@@ -5,13 +5,15 @@ package example.codeclan.com.shop;
  */
 
 public class Item{
-
+    private int id;
     private String name ;
     private double price;
     private int quantity;
 
 
-    public  Item(String name,double price,Integer quantity){
+
+    public  Item(Integer id, String name,double price,Integer quantity){
+        this.id = id;
         this.name = name;
         this.price = price;
         this.quantity=quantity;

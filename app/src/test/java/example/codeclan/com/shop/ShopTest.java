@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotNull;
 
 /**
  * Created by user on 21/04/2017.
@@ -13,21 +14,16 @@ import static junit.framework.Assert.assertEquals;
 
 public class ShopTest {
     Shop shop;
-    Item items;
-     Card card;
-    Customer customers;
+    Item item;
+    Customer customer;
     PurchasedItems purchasedItems;
 
 
     @Before
     public void before() {
         shop = new Shop(10, 5, 100.00);
-         items = new Item("chocalate", 5.00, 10);
-        customers = new Customer("Rajini");
-        card = new Card("CreditCard", 1111, 100.0);
-
-
-
+        item = new Item(1,"chocalate", 5.00, 10);
+        customer = new Customer("Rajini", new Card("Master", 44, 1000.0));
     }
 
     @Test
@@ -35,40 +31,55 @@ public class ShopTest {
         assertEquals(10, shop.getShopSales());
     }
     @Test
+    public void addItemTest(){
+        shop.addItem(item);
+
+    }
+
+
+
+    @Test
     public void setShopSalesTest() {
         shop.setShopSales(20);
         assertEquals(20, shop.getShopSales());
     }
 
     @Test
-    public void getShopRefundsTest(){
+    public void getShopRefundsTest() {
         assertEquals(5, shop.getShopRefunds());
     }
 
     @Test
-    public void setShopRefundsTest(){
+    public void setShopRefundsTest() {
         shop.setShopRefunds(10);
         assertEquals(10, shop.getShopRefunds());
     }
+
     @Test
-    public void getShopTotalIncomeTest(){
-        assertEquals(100.00,shop.getShopTotalIncome());
+    public void getShopTotalIncomeTest() {
+        assertEquals(100.00, shop.getShopTotalIncome());
 
     }
+
     @Test
-    public void setShopTotalIncomeTest(){
+    public void setShopTotalIncomeTest() {
         shop.setShopTotalIncome(200.00);
-//        System.out.println(shop.getShopTotalIncome());
-       assertEquals(200.00,shop.getShopTotalIncome());
+
+        assertEquals(200.00, shop.getShopTotalIncome());
 
     }
-//   @Test
-//    public void getMakeASale(){
-//
-//
-//         assertEquals(95,shop.addTheSaleItemToCustomer("Rajini",items,card));
-//
-//    }
+   @Test
+    public void makeaSaleToCustomerTest(){
+       shop.makeaSaleToCustomer(item, customer);
+
+       assertEquals(995.0, customer.getTotalMoneyInCard());
+
+   }
+    @Test
+    public void giveARefundToCustomerTest(){
+
+
+    }
 }
 
 

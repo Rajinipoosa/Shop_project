@@ -16,12 +16,12 @@ public class ItemTest {
 
     @Before
     public void before() {
-        item1 = new Item("Bread", 5.00, 4);
-        item2 = new Item("Jam", 4.00, 2);
+        item1 = new Item(2,"Bread", 5.00, 4);
+        item2 = new Item(3,"Jam", 4.00, 2);
     }
     @Test
     public void setNameTest(){
-        item2 = new Item("Banana",2.00,2);
+        item2 = new Item(2,"Banana",2.00,2);
         item2.setName("Banana");
         assertEquals("Banana",item2.getName());
 

@@ -16,7 +16,7 @@ public class Customer {
     private ArrayList<PurchasedItems> purchasedItems;
     private Card preferredCardDetails;
 
-    public Customer(String name){
+    public Customer(String name, Card preferredCardDetails){
         this.CustomerName = name;
         paymentlist = new ArrayList<Card>();
         paymentlist.add(new Card("CreditCard", 1111, 100.0));
@@ -38,13 +38,18 @@ public class Customer {
     }
 
 
-    public double getTotalMoneyInCard(Card preferredCardDetails) {
+    public double getTotalMoneyInCard() {
 
         return preferredCardDetails.getCardAmount();
     }
 
+    public double buyItem(double item_price) {
+        double result = 0;
+        result = preferredCardDetails.getCardAmount() - item_price;
 
-    public double setTotalMoneyInCard(Card preferredCardDetails, double updateMoney) {
-        return preferredCardDetails.setCardAmount(updateMoney);
+        preferredCardDetails.setCardAmount(result);
+
+        return result;
+
     }
 }

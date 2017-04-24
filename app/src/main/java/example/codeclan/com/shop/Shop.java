@@ -8,9 +8,7 @@ import java.util.ArrayList;
 
 public class Shop {
     private ArrayList<Item> items;
-    private ArrayList<Customer> customers;
     private ArrayList<PurchasedItems> purchasedItems;
-    private ArrayList<Card> card;
     private int sales;
     private int refunds;
     private double totalIncome;
@@ -18,14 +16,10 @@ public class Shop {
     public Shop(Integer sales, Integer refunds, Double totalIncome) {
 
         this.items = new ArrayList<Item>();
-        this.card = new ArrayList<Card>();
-        this.customers = new ArrayList<Customer>();
         this.sales = sales;
         this.refunds = refunds;
         this.totalIncome = totalIncome;
         this.purchasedItems = new ArrayList<PurchasedItems>();
-
-
 
 
     }
@@ -33,6 +27,11 @@ public class Shop {
     public int getShopSales() {
         return sales;
     }
+
+
+
+
+
 
     public void setShopSales(int shopSales) {
         this.sales = shopSales;
@@ -54,37 +53,42 @@ public class Shop {
         this.totalIncome = shopTotalIncome;
         return totalIncome;
     }
+    public void addItem(Item item) {
+        items.add(item);
+    }
 
-//    public double addTheSaleItemToCustomer(String name,Item items, Card cards) {
-//
-//         double result   = 0 ; double value = 0;
-//
-//
-//        for (Customer customer : customers) {
-//
-//            if (customer.getCustomerName() == name ){
-//
-//                for(Card customercard : card){
-//                    if ( (customercard.getCardType() == cards.getCardType()) && (customercard.getCardNumber() == cards.getCardNumber())){
-//                          value = customer.getTotalMoneyInCard(cards.getCardType(),cards.getCardNumber());
-//                          result  = value - items.getPrice();
-//
-//
-//                    }
-//
-//                }
-//
-//                customer.UpdateTotalMoneyInCard(cards.getCardType(),cards.getCardNumber(),result);
-//               result = customer.getTotalMoneyInCard(cards.getCardType(),cards.getCardNumber());
-//
-//
-//
-//
-//        }
-//            return result;
-//        }
-//
-//    }
+    public double makeaSaleToCustomer(Item item, Customer customer) {
+        double value = 0;
+        double result= 0;
+        /*
+                Have a public void addItem(item item)
+                    this will add to arraylist
+
+
+                 Alos have an id for item so we can keep track
+
+
+                 first in this method check if item exists
+                 if it does, sell to customer
+
+                 then take item out of arraylist, then add to purchaseditem arraylist
+
+                 test it
+         */
+        if (items.equals(item)) {
+
+        }
+
+        result = customer.buyItem(item.getPrice());
+         value  = item.getQuantity() - 1;
+        purchasedItems.add(new PurchasedItems(item.getName(),item.getPrice()));
+        sales = sales + 1;
+        return result;
+
+    }
+
+
+
 }
 
 
