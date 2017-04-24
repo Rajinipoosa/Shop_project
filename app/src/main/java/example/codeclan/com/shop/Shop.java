@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Shop {
     private ArrayList<Item> items;
-    private ArrayList<PurchasedItems> purchasedItems;
+    private ArrayList<Item> purchasedItems;
     private int sales;
     private int refunds;
     private double totalIncome;
@@ -19,7 +19,7 @@ public class Shop {
         this.sales = sales;
         this.refunds = refunds;
         this.totalIncome = totalIncome;
-        this.purchasedItems = new ArrayList<PurchasedItems>();
+        this.purchasedItems = new ArrayList<Item>();
 
 
     }
@@ -54,9 +54,7 @@ public class Shop {
         items.add(item);
     }
 
-    public double makeaSaleToCustomer(Item item, Customer customer) {
-        double value = 0;
-        double result= 0;
+    public void makeaSaleToCustomer(Item item, Customer customer) {
         /*
                 Have a public void addItem(item item)
                     this will add to arraylist
@@ -72,36 +70,30 @@ public class Shop {
 
                  test it
          */
-        if (items.equals(item)) {
 
+        if(items.contains(item)) {
+            customer.buyItem(item.getPrice());
+            purchasedItems.add(item);
+            sales = sales + 1;
+            setShopSales(sales);
         }
-
-        result = customer.buyItem(item.getPrice());
-         value  = item.getQuantity() - 1;
-        purchasedItems.add(new PurchasedItems(item.getId(),item.getName(),item.getPrice()));
-        sales = sales + 1;
-         setShopSales(sales);
-        return result;
     }
 
 
-    public void giveARefundToCustomer(Item item, Customer customer) {
-        double value = 0;
-        double result= 0;
-        if(purchasedItems.contains(item)){
+    public void  giveARefundToCustomer(Item item, Customer customer) {
+
+        if(purchasedItems.contains(item)) {
+            customer.refundItem(item.getPrice());
+            purchasedItems.remove(item);
+            refunds = refunds + 1;
+            setShopRefunds(refunds);
 
         }
-       result = customer.refundItem(item.getPrice());
-        purchasedItems.remove(item);
-        refunds = refunds + 1;
-        setShopRefunds(refunds);
-
-
     }
 
-    public double reportTotalIncomeTest() {
-        totalIncome = totalIncome + (getShopSales() - getShopRefunds());
-        return totalIncome;
+    public void reportTotalIncomeTest() {
+        totalIncome = sales - refunds;
+        setShopTotalIncome(totalIncome);
 
     }
 }

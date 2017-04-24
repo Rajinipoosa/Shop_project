@@ -46,8 +46,10 @@ public class CustomerTest {
 
     @Test
     public void buyItemTest(){
+        customer.buyItem(10.00);
+        double total = customer.getTotalMoneyInCard();
 
-        assertEquals(190.0,customer.buyItem(10.00),0.01);
+        assertEquals(190.0,total,0.01);
 
 
     }

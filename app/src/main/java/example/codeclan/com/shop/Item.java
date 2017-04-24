@@ -34,14 +34,21 @@ public class Item{
     }
 
     public void setName(String name) {
-        this.name = "Banana";
+        this.name = name;
     }
 
     public void setPrice(double price) {
-        this.price = 2.00;
+        this.price = price ;
     }
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public boolean equals(Object otherItem) {
+        Item other = (Item) otherItem;
+
+        return this.id == other.getId();
     }
 }
