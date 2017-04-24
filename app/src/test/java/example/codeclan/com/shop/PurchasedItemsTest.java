@@ -14,7 +14,7 @@ public class PurchasedItemsTest {
 
     @Before
     public void before(){
-       purchasedItems = new PurchasedItems("Bread",2.00);
+       purchasedItems = new PurchasedItems(3,"Bread",2.00);
 
     }
 

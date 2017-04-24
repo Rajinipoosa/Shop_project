@@ -22,7 +22,7 @@ public class Customer {
         paymentlist.add(new Card("CreditCard", 1111, 100.0));
         paymentlist.add(new Card("DebitCard", 4444, 200.00));
         purchasedItems = new ArrayList<PurchasedItems>();
-        purchasedItems.add(new PurchasedItems("Book",5.00));
+        purchasedItems.add(new PurchasedItems(4,"Book",5.00));
         this.preferredCardDetails = preferredCardDetails;
 
     }
@@ -51,5 +51,12 @@ public class Customer {
 
         return result;
 
+    }
+
+    public double refundItem(double item_price) {
+        double result = 0;
+        result = preferredCardDetails.getCardAmount() + item_price;
+        preferredCardDetails.setCardAmount(result);
+        return result;
     }
 }

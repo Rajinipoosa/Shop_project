@@ -52,6 +52,10 @@ public class CustomerTest {
 
     }
 
+     @Test
+     public void refundItemTest(){
+         assertEquals(200.0,customer.refundItem(10.00));
 
+     }
 
 }

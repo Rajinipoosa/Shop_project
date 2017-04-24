@@ -30,6 +30,7 @@ public class ShopTest {
     public void getShopSalesTest() {
         assertEquals(10, shop.getShopSales());
     }
+
     @Test
     public void addItemTest(){
         shop.addItem(item);
@@ -66,20 +67,25 @@ public class ShopTest {
         shop.setShopTotalIncome(200.00);
 
         assertEquals(200.00, shop.getShopTotalIncome());
-
     }
+
    @Test
     public void makeaSaleToCustomerTest(){
        shop.makeaSaleToCustomer(item, customer);
 
        assertEquals(995.0, customer.getTotalMoneyInCard());
-
    }
+
     @Test
     public void giveARefundToCustomerTest(){
+        shop.giveARefundToCustomer(item, customer);
+        assertEquals(1005.0,customer.getTotalMoneyInCard());
+
+
+        }
 
 
     }
-}
+
 
 

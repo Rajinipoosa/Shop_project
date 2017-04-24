@@ -28,11 +28,6 @@ public class Shop {
         return sales;
     }
 
-
-
-
-
-
     public void setShopSales(int shopSales) {
         this.sales = shopSales;
     }
@@ -49,10 +44,12 @@ public class Shop {
         return totalIncome;
     }
 
-    public double setShopTotalIncome(double shopTotalIncome) {
+
+    public void  setShopTotalIncome(double shopTotalIncome) {
         this.totalIncome = shopTotalIncome;
-        return totalIncome;
     }
+
+
     public void addItem(Item item) {
         items.add(item);
     }
@@ -81,14 +78,23 @@ public class Shop {
 
         result = customer.buyItem(item.getPrice());
          value  = item.getQuantity() - 1;
-        purchasedItems.add(new PurchasedItems(item.getName(),item.getPrice()));
+        purchasedItems.add(new PurchasedItems(item.getId(),item.getName(),item.getPrice()));
         sales = sales + 1;
         return result;
 
     }
 
 
+    public void giveARefundToCustomer(Item item, Customer customer) {
+        double value = 0;
+        double result= 0;
+        if(purchasedItems.contains(item)){
 
+        }
+       result = customer.refundItem(item.getPrice());
+        purchasedItems.remove(item);
+        refunds = refunds + 1;
+    }
 }
 
 

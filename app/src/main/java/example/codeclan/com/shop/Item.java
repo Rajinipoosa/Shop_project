@@ -19,6 +19,7 @@ public class Item{
         this.quantity=quantity;
 
     }
+    
 
     public String getName() {
         return name;
@@ -38,5 +39,9 @@ public class Item{
 
     public void setPrice(double price) {
         this.price = 2.00;
+    }
+
+    public int getId() {
+        return id;
     }
 }
