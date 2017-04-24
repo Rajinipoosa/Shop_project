@@ -54,7 +54,7 @@ public class Shop {
         items.add(item);
     }
 
-    public void makeaSaleToCustomer(Item item, Customer customer) {
+   public void makeaSaleToCustomer(Item item, Customer customer) {
         /*
                 Have a public void addItem(item item)
                     this will add to arraylist
@@ -70,7 +70,6 @@ public class Shop {
 
                  test it
          */
-
         if(items.contains(item)) {
             customer.buyItem(item.getPrice());
             purchasedItems.add(item);

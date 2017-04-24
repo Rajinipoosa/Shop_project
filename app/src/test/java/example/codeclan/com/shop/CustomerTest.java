@@ -17,7 +17,7 @@ public class CustomerTest {
 
     Customer customer;
     Card paymentDetails;
-    PurchasedItems purchasedItems;
+    Item   purchasedItems;
     Card preferredCardDetails;
 
     @Before
@@ -30,6 +30,13 @@ public class CustomerTest {
         assertEquals("Rajini", customer.getCustomerName());
 
     }
+    @Test
+    public void selectPrefferedCardDetailsTest() {
+
+        customer.selectPrefferedCardDetails("CreditCard", 1111);
+    }
+
+
     @Test
     public void getCustomerCardNamesTest() {
         assertEquals(2, customer.getPaymentDetails());
@@ -50,9 +57,7 @@ public class CustomerTest {
         double total = customer.getTotalMoneyInCard();
 
         assertEquals(190.0,total,0.01);
-
-
-    }
+     }
 
      @Test
      public void refundItemTest(){

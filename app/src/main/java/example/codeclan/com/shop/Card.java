@@ -35,4 +35,8 @@ public class Card {
     public void setCardNumber(int cardNumber) {
         this.cardNumber = cardNumber;
     }
+
+    public void setCardType(String cardType) {
+        this.cardType = cardType;
+    }
 }
