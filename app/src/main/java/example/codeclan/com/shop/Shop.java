@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 
 public class Shop {
+
     private ArrayList<Item> items;
     private ArrayList<Item> purchasedItems;
     private int sales;
@@ -19,7 +20,7 @@ public class Shop {
         this.sales = sales;
         this.refunds = refunds;
         this.totalIncome = totalIncome;
-        this.purchasedItems = new ArrayList<Item>();
+      this.purchasedItems = new ArrayList<Item>();
     }
 
     public int getShopSales() {
@@ -52,17 +53,21 @@ public class Shop {
        items.add(item);
     }
 
+
    public void makeaSaleToCustomer(Item item, Customer customer) {
 
        if (items.contains(item)) {
            if (item.getQuantity() > 0) {
                customer.buyItem(item.getPrice());
-               purchasedItems.add(item);
-               sales = sales + 2;
+               purchasedItems.add(item );
+               sales = sales + 1;
                setShopSales(sales);
                int newQuanty = item.getQuantity() - 1;
                item.setQuantity(newQuanty);
+
                items.remove(item);
+
+
            }
            if (item.getQuantity() == 0) {
                items.remove(item);
@@ -81,6 +86,8 @@ public class Shop {
             customer.refundItem(item.getPrice());
             items.add(item);
             purchasedItems.remove(item);
+
+
             refunds = refunds + 1;
             setShopRefunds(refunds);
             int newQuanty = item.getQuantity() + 1;

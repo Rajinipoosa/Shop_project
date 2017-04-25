@@ -20,10 +20,12 @@ public class CustomerTest {
     Item   purchasedItems;
     Card preferredCardDetails;
 
+
     @Before
       public void before() {
         preferredCardDetails  = new Card("DebitCard",4444,200.00);
         customer = new Customer("Rajini", preferredCardDetails);
+        this.purchasedItems = purchasedItems;
 
     }
     @Test
@@ -55,11 +57,12 @@ public class CustomerTest {
     @Test
 
       public void buyItemTest(){
-        customer.buyItem(10.00);
         customer.selectPrefferedCardDetails("VisaCard");
+        customer.buyItem(10.00);
+           customer.getPurchasedItem();
 
         double total = customer.getTotalMoneyInCard();
-        assertEquals(50.0,total,0.01);
+        assertEquals(40.0,total,0.01);
      }
 
 
@@ -71,6 +74,12 @@ public class CustomerTest {
          assertEquals(60.00,customer.refundItem(10.00));
 
      }
+
+
+    @Test
+    public void getTotalPurchasedItems(){
+        assertEquals(1,customer.getPurchasedItem());
+    }
 
 
 }

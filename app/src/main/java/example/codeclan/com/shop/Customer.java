@@ -12,6 +12,7 @@ import java.util.StringTokenizer;
  */
 
 public class Customer {
+
     private String CustomerName;
     private ArrayList <Card> paymentlist;
     private ArrayList<Item> purchasedItems;
@@ -20,12 +21,14 @@ public class Customer {
 
     public Customer(String name,Card preferredCardDetails){
 
+
         this.CustomerName = name;
         paymentlist = new ArrayList<Card>();
         paymentlist.add(new Card("CreditCard",1111, 100.0)) ;
         paymentlist.add(new Card("DebitCard",4444, 200.00));
         paymentlist.add(new Card("VisaCard",3333, 50.00));
         purchasedItems = new ArrayList<Item>();
+
        this.preferredCardDetails = preferredCardDetails;
 
     }
@@ -38,6 +41,10 @@ public class Customer {
        return paymentlist.size();
 
     }
+    public int getPurchasedItem() {
+
+        return purchasedItems.size();
+    }
 
     public double getTotalMoneyInCard() {
         return preferredCardDetails.getCardAmount();
@@ -47,10 +54,11 @@ public class Customer {
         double result = 0;
         result = preferredCardDetails.getCardAmount() - item_price;
         preferredCardDetails.setCardAmount(result);
+
+
     }
 
     public double refundItem(double item_price) {
-
         double result = 0;
         result = preferredCardDetails.getCardAmount() + item_price;
         preferredCardDetails.setCardAmount(result);
@@ -69,4 +77,9 @@ public class Customer {
         }
 
     }
+
+
+
+
+
 }
