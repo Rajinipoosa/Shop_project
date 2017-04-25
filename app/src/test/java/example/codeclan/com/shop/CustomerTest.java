@@ -21,46 +21,56 @@ public class CustomerTest {
     Card preferredCardDetails;
 
     @Before
-    public void before() {
-        preferredCardDetails = new Card("DebitCard",4444,200.00);
+      public void before() {
+        preferredCardDetails  = new Card("DebitCard",4444,200.00);
         customer = new Customer("Rajini", preferredCardDetails);
+
     }
     @Test
-    public void getCustomerNameTest(){
+      public void getCustomerNameTest(){
         assertEquals("Rajini", customer.getCustomerName());
 
     }
+
+
     @Test
-    public void selectPrefferedCardDetailsTest() {
-        customer.selectPrefferedCardDetails("CreditCard");
+      public void getCustomerCardTotalTest() {
+        assertEquals(3, customer.getTotalNumberOfPaymentDetails());
     }
 
 
     @Test
-    public void getCustomerCardTotalTest() {
-        assertEquals(2, customer.getTotalNumberOfPaymentDetails());
-    }
+      public void getTotalMoneyInCardTest(){
 
-
-    @Test
-    public void getTotalMoneyInCardTest(){
         assertEquals(200.00,customer.getTotalMoneyInCard());
 
     }
 
     @Test
-    public void buyItemTest(){
+    public void selectPrefferedCardDetailsTest() {
         customer.selectPrefferedCardDetails("CreditCard");
+        assertEquals(100.0, customer.getTotalMoneyInCard(), 0.01);
+    }
+
+    @Test
+
+      public void buyItemTest(){
         customer.buyItem(10.00);
+        customer.selectPrefferedCardDetails("VisaCard");
+
         double total = customer.getTotalMoneyInCard();
-        assertEquals(90.0,total,0.01);
+        assertEquals(50.0,total,0.01);
      }
+
+
 
      @Test
-     public void refundItemTest(){
-         customer.selectPrefferedCardDetails("DebitCard");
-         assertEquals(210.0,customer.refundItem(10.00));
+       public void refundItemTest(){
+         customer.selectPrefferedCardDetails("VisaCard");
+
+         assertEquals(60.00,customer.refundItem(10.00));
 
      }
+
 
 }

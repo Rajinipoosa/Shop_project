@@ -29,6 +29,7 @@ public class Item{
         return price;
     }
 
+
     public int getQuantity() {
         return quantity;
     }
@@ -51,4 +52,12 @@ public class Item{
 
         return this.id == other.getId();
     }
+
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+
+
 }

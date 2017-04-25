@@ -20,8 +20,6 @@ public class Shop {
         this.refunds = refunds;
         this.totalIncome = totalIncome;
         this.purchasedItems = new ArrayList<Item>();
-
-
     }
 
     public int getShopSales() {
@@ -51,39 +49,53 @@ public class Shop {
 
 
     public void addItem(Item item) {
-        items.add(item);
+       items.add(item);
     }
 
    public void makeaSaleToCustomer(Item item, Customer customer) {
 
-        if(items.contains(item)) {
-            customer.buyItem(item.getPrice());
+       if (items.contains(item)) {
+           if (item.getQuantity() > 0) {
+               customer.buyItem(item.getPrice());
+               purchasedItems.add(item);
+               sales = sales + 2;
+               setShopSales(sales);
+               int newQuanty = item.getQuantity() - 1;
+               item.setQuantity(newQuanty);
+               items.remove(item);
+           }
+           if (item.getQuantity() == 0) {
+               items.remove(item);
 
-            items.remove(item);
-            purchasedItems.add(item);
-            sales = sales + 1;
-            setShopSales(sales);
-        }
-    }
+           }
+
+       }
+
+   }
 
 
     public void  giveARefundToCustomer(Item item, Customer customer) {
 
         if(purchasedItems.contains(item)) {
+
             customer.refundItem(item.getPrice());
             items.add(item);
             purchasedItems.remove(item);
             refunds = refunds + 1;
             setShopRefunds(refunds);
+            int newQuanty = item.getQuantity() + 1;
+            item.setQuantity(newQuanty);
 
         }
     }
 
     public void reportTotalIncomeTest() {
+
         totalIncome = sales - refunds;
         setShopTotalIncome(totalIncome);
 
     }
+
 }
 
 

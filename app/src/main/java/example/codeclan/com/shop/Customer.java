@@ -18,14 +18,15 @@ public class Customer {
     private Card preferredCardDetails;
 
 
-    public Customer(String name, Card preferredCardDetails){
+    public Customer(String name,Card preferredCardDetails){
 
         this.CustomerName = name;
         paymentlist = new ArrayList<Card>();
         paymentlist.add(new Card("CreditCard",1111, 100.0)) ;
         paymentlist.add(new Card("DebitCard",4444, 200.00));
+        paymentlist.add(new Card("VisaCard",3333, 50.00));
         purchasedItems = new ArrayList<Item>();
-        this.preferredCardDetails = preferredCardDetails;
+       this.preferredCardDetails = preferredCardDetails;
 
     }
 
@@ -38,19 +39,18 @@ public class Customer {
 
     }
 
-
     public double getTotalMoneyInCard() {
         return preferredCardDetails.getCardAmount();
-
     }
 
     public void buyItem(double item_price) {
         double result = 0;
-       result = preferredCardDetails.getCardAmount() - item_price;
+        result = preferredCardDetails.getCardAmount() - item_price;
         preferredCardDetails.setCardAmount(result);
     }
 
     public double refundItem(double item_price) {
+
         double result = 0;
         result = preferredCardDetails.getCardAmount() + item_price;
         preferredCardDetails.setCardAmount(result);

@@ -38,12 +38,12 @@ public class CardTest {
           assertEquals(12.00,card.getCardAmount());
       }
        @Test
-    public void SetCardNumberTest(){
+        public void SetCardNumberTest(){
            card.setCardNumber(5555);
            assertEquals(5555,card.getCardNumber());
        }
        @Test
-      public void setCardTypeTest(){
+        public void setCardTypeTest(){
            card.setCardType("CreditCard");
            assertEquals("CreditCard",card.getCardType()) ;
        }
