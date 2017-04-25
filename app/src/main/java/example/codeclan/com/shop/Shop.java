@@ -56,10 +56,11 @@ public class Shop {
 
    public void makeaSaleToCustomer(Item item, Customer customer) {
 
+
        if (items.contains(item)) {
            if (item.getQuantity() > 0) {
                customer.buyItem(item.getPrice());
-               purchasedItems.add(item );
+               purchasedItems.add(item);
                sales = sales + 1;
                setShopSales(sales);
                int newQuanty = item.getQuantity() - 1;

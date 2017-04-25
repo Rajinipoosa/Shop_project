@@ -52,8 +52,9 @@ public class Customer {
 
     public void buyItem(double item_price) {
         double result = 0;
-        result = preferredCardDetails.getCardAmount() - item_price;
-        preferredCardDetails.setCardAmount(result);
+
+            result = preferredCardDetails.getCardAmount() - (item_price);
+            preferredCardDetails.setCardAmount(result);
 
 
     }
