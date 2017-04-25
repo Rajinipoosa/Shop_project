@@ -16,14 +16,12 @@ public class Customer {
     private ArrayList <Card> paymentlist;
     private ArrayList<Item> purchasedItems;
     private Card preferredCardDetails;
-//    HashMap<String,Integer> paymentlist;
+
 
     public Customer(String name, Card preferredCardDetails){
+
         this.CustomerName = name;
         paymentlist = new ArrayList<Card>();
-//        HashMap<String,Integer> paymentlist = new HashMap<String,Integer>();
-        //paymentlist.put("CreditCard",100.00);
-        //paymentlist.put("DebitCard",200);
         paymentlist.add(new Card("CreditCard",1111, 100.0)) ;
         paymentlist.add(new Card("DebitCard",4444, 200.00));
         purchasedItems = new ArrayList<Item>();
@@ -31,14 +29,13 @@ public class Customer {
 
     }
 
-
     public String getCustomerName() {
         return this.CustomerName;
     }
 
-    public int getPaymentDetails() {
+    public int getTotalNumberOfPaymentDetails() {
+       return paymentlist.size();
 
-        return paymentlist.size();
     }
 
 
@@ -50,25 +47,21 @@ public class Customer {
     public void buyItem(double item_price) {
         double result = 0;
        result = preferredCardDetails.getCardAmount() - item_price;
-        //paymentlist.get("DebitCard")
-//        result =  paymentlist.get("DebitCard")-item_price;
-
         preferredCardDetails.setCardAmount(result);
     }
 
     public double refundItem(double item_price) {
         double result = 0;
-//        paymentlist.get("DebitCard") + item_price;
         result = preferredCardDetails.getCardAmount() + item_price;
-//          paymentlist.get("DebitCard").setCardAmount(result);
         preferredCardDetails.setCardAmount(result);
         return result;
     }
 
-    public void selectPrefferedCardDetails(String cardtype,int number) {
+    public void selectPrefferedCardDetails(String cardtype) {
         for(Card card: paymentlist  ){
-            if(card.getCardType() == cardtype && card.getCardNumber() == number){
+            if(card.getCardType() == cardtype){
                 preferredCardDetails = card;
+
 
 
             }

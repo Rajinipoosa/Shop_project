@@ -72,7 +72,6 @@ public class ShopTest {
 
    @Test
     public void makeaSaleToCustomerTest(){
-//       customer.selectPrefferedCardDetails("CreditCard",4444);
        shop.makeaSaleToCustomer(item, customer);
 
        assertEquals(995.0, customer.getTotalMoneyInCard());
@@ -80,7 +79,6 @@ public class ShopTest {
 
     @Test
     public void giveARefundToCustomerTest(){
-//        customer.selectPrefferedCardDetails("DebitCard",1111);
         shop.makeaSaleToCustomer(item, customer);
         shop.giveARefundToCustomer(item, customer);
         assertEquals(1000.0,customer.getTotalMoneyInCard());

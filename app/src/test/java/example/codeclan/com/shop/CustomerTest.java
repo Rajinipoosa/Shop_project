@@ -32,35 +32,33 @@ public class CustomerTest {
     }
     @Test
     public void selectPrefferedCardDetailsTest() {
-
-        customer.selectPrefferedCardDetails("CreditCard", 1111);
+        customer.selectPrefferedCardDetails("CreditCard");
     }
 
 
     @Test
-    public void getCustomerCardNamesTest() {
-        assertEquals(2, customer.getPaymentDetails());
+    public void getCustomerCardTotalTest() {
+        assertEquals(2, customer.getTotalNumberOfPaymentDetails());
     }
 
 
     @Test
     public void getTotalMoneyInCardTest(){
-
         assertEquals(200.00,customer.getTotalMoneyInCard());
 
     }
 
-
     @Test
     public void buyItemTest(){
+        customer.selectPrefferedCardDetails("CreditCard");
         customer.buyItem(10.00);
         double total = customer.getTotalMoneyInCard();
-
-        assertEquals(190.0,total,0.01);
+        assertEquals(90.0,total,0.01);
      }
 
      @Test
      public void refundItemTest(){
+         customer.selectPrefferedCardDetails("DebitCard");
          assertEquals(210.0,customer.refundItem(10.00));
 
      }

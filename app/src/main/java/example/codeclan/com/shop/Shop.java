@@ -55,23 +55,11 @@ public class Shop {
     }
 
    public void makeaSaleToCustomer(Item item, Customer customer) {
-        /*
-                Have a public void addItem(item item)
-                    this will add to arraylist
 
-
-                 Alos have an id for item so we can keep track
-
-
-                 first in this method check if item exists
-                 if it does, sell to customer
-
-                 then take item out of arraylist, then add to purchaseditem arraylist
-
-                 test it
-         */
         if(items.contains(item)) {
             customer.buyItem(item.getPrice());
+
+            items.remove(item);
             purchasedItems.add(item);
             sales = sales + 1;
             setShopSales(sales);
@@ -83,6 +71,7 @@ public class Shop {
 
         if(purchasedItems.contains(item)) {
             customer.refundItem(item.getPrice());
+            items.add(item);
             purchasedItems.remove(item);
             refunds = refunds + 1;
             setShopRefunds(refunds);
