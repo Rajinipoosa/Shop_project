@@ -9,10 +9,8 @@ import static junit.framework.Assert.assertEquals;
  * Created by user on 21/04/2017.
  */
 
-public class ItemTest {
-    Item item;
-
-
+   public class ItemTest {
+      Item item;
 
     @Before
     public void before() {
@@ -36,8 +34,6 @@ public class ItemTest {
        public void getQuantityTest(){
          assertEquals(4,item.getQuantity());
      }
-
-
 
     @Test
     public void setPriceTest(){

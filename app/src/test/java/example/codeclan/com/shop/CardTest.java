@@ -14,18 +14,18 @@ import static junit.framework.Assert.assertEquals;
 
       @Before
         public void before(){
-         card = new Card("DebitCard", 4444,200.00);
+          card = new Card("DebitCard", 4444,200.00);
 
       }
 
       @Test
         public void getCardTypeTest(){
-        assertEquals("DebitCard",card.getCardType());
+         assertEquals("DebitCard",card.getCardType());
 
       }
       @Test
         public void getCardNumberTest(){
-        assertEquals(4444, card.getCardNumber());
+         assertEquals(4444, card.getCardNumber());
       }
       @Test
         public void getCardAmountTest(){

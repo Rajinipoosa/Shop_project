@@ -39,15 +39,15 @@ public class ShopTest {
 
     }
     @Test
-    public void getOrderItemQuantityTest(){
+      public void getOrderItemQuantityTest(){
         assertEquals(2, shop.getOrderItemQuantity());
 
     }
 
     @Test
-      public void setShopSalesTest() {
-        shop.setShopSales(20);
-        assertEquals(20, shop.getShopSales());
+        public void setShopSalesTest() {
+          shop.setShopSales(20);
+          assertEquals(20, shop.getShopSales());
     }
 
     @Test
@@ -70,18 +70,17 @@ public class ShopTest {
     @Test
       public void setShopTotalIncomeTest() {
         shop.setShopTotalIncome(200.00);
-
         assertEquals(200.00, shop.getShopTotalIncome());
     }
 
 
    @Test
-     public void makeaSaleToCustomerTest(){
-       assertEquals(10,item.getQuantity());
-        shop.makeaSaleToCustomer(item, customer,shop.getOrderItemQuantity());
-        assertEquals(490.0, customer.getTotalMoneyInCard());
-        assertEquals(8,item.getQuantity());
-       assertEquals(11,shop.getShopSales());
+      public void makeaSaleToCustomerTest(){
+         assertEquals(10,item.getQuantity());
+         shop.makeaSaleToCustomer(item, customer,shop.getOrderItemQuantity());
+         assertEquals(490.0, customer.getTotalMoneyInCard());
+         assertEquals(8,item.getQuantity());
+         assertEquals(11,shop.getShopSales());
 
    }
 
@@ -95,7 +94,7 @@ public class ShopTest {
         assertEquals(100.0,customer.getTotalMoneyInCard());
         assertEquals(10,item.getQuantity());
         assertEquals(6,shop.getShopRefunds());
-//       / assertEquals(false,purchasedItems);
+
     }
 
     @Test

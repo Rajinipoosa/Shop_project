@@ -13,7 +13,7 @@ import static junit.framework.Assert.assertNotNull;
  * Created by user on 21/04/2017.
  */
 
-public class CustomerTest {
+  public class CustomerTest {
 
     Customer customer;
     Card paymentDetails;
@@ -51,7 +51,6 @@ public class CustomerTest {
     @Test
       public void selectPrefferedCardDetailsTest() {
         customer.selectPrefferedCardDetails("CreditCard");
-
         assertEquals(100.0, customer.getTotalMoneyInCard(), 0.01);
         // assertEquals(200.00, customer.getTotalMoneyInCard(), 0.01);
     }
@@ -71,9 +70,6 @@ public class CustomerTest {
       public void getTotalPurchasedItems(){
         assertEquals(1,customer.getPurchasedItem(new Item(2,"Bread", 5.00, 4)));
     }
-
-
-
 
     @Test
       public void refundItemTest() {
