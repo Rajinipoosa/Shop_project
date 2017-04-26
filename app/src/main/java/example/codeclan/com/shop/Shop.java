@@ -14,14 +14,16 @@ public class Shop {
     private int sales;
     private int refunds;
     private double totalIncome;
+    private double orderItemQuantity;
 
-    public Shop(Integer sales, Integer refunds, Double totalIncome) {
+    public Shop(Integer sales, Integer refunds, Double totalIncome,double orderItemQuantity) {
 
         this.items = new ArrayList<Item>();
         this.sales = sales;
         this.refunds = refunds;
         this.totalIncome = totalIncome;
       this.purchasedItems = new ArrayList<Item>();
+        this.orderItemQuantity = orderItemQuantity;
     }
 
     public int getShopSales() {
@@ -44,6 +46,11 @@ public class Shop {
         return totalIncome;
     }
 
+    public double getOrderItemQuantity() {
+        return orderItemQuantity;
+    }
+
+
 
     public void  setShopTotalIncome(double shopTotalIncome) {
         this.totalIncome = shopTotalIncome;
@@ -55,23 +62,18 @@ public class Shop {
     }
 
 
-   public void makeaSaleToCustomer(Item item, Customer customer) {
+   public void makeaSaleToCustomer(Item item, Customer customer, double orderItemQuantity) {
 
 
        if (items.contains(item)) {
            if (item.getQuantity() > 0) {
-               if((purchasedItems.contains(item.getId()))){
-                   customer.buyItem(item.getPrice());
-                      int result = item .getQuantity() + 1;
 
-               }
-
-                  customer.buyItem(item.getPrice());
-                  purchasedItems.add(item);
-                 sales = sales + 1;
-                 setShopSales(sales);
-                 int newQuanty = item.getQuantity() - 1;
-                 item.setQuantity(newQuanty);
+               customer.buyItem(item.getPrice(),orderItemQuantity);
+               purchasedItems.add(item);
+               sales = sales + 1;
+               setShopSales(sales);
+               int newQuanty = item.getQuantity() - 1;
+               item.setQuantity(newQuanty);
 
 
 
@@ -84,11 +86,11 @@ public class Shop {
        }
 
    }
-    public void  giveARefundToCustomer(Item item, Customer customer) {
+    public void  giveARefundToCustomer(Item item, Customer customer,double orderItemQuantity) {
 
         if(purchasedItems.contains(item)) {
 
-            customer.refundItem(item.getPrice());
+            customer.refundItem(item.getPrice(),orderItemQuantity);
             items.add(item);
             purchasedItems.remove(item);
 

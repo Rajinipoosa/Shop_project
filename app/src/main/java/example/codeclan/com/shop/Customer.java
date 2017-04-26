@@ -49,18 +49,20 @@ public class Customer {
         return preferredCardDetails.getCardAmount();
     }
 
-    public void buyItem(double item_price) {
+    public void buyItem(double item_price,double item_quantity) {
         double result = 0;
 
-            result = preferredCardDetails.getCardAmount() - (item_price);
+            result = preferredCardDetails.getCardAmount() - (item_price*item_quantity) ;
+
             preferredCardDetails.setCardAmount(result);
+
 
 
     }
 
-    public double refundItem(double item_price) {
+    public double refundItem(double item_price,double item_quantity) {
         double result = 0;
-        result = preferredCardDetails.getCardAmount() + item_price;
+        result = preferredCardDetails.getCardAmount() + (item_price*item_quantity) ;
         preferredCardDetails.setCardAmount(result);
         return result;
     }

@@ -58,11 +58,11 @@ public class CustomerTest {
 
       public void buyItemTest(){
         customer.selectPrefferedCardDetails("DebitCard");
-        customer.buyItem(10.00);
+        customer.buyItem(10.00,2);
 
 
         double total = customer.getTotalMoneyInCard();
-        assertEquals(190.0,total,0.01);
+        assertEquals(180.0,total,0.01);
      }
 
 
@@ -71,7 +71,7 @@ public class CustomerTest {
        public void refundItemTest(){
          customer.selectPrefferedCardDetails("VisaCard");
 
-         assertEquals(60.00,customer.refundItem(10.00));
+         assertEquals(70.00,customer.refundItem(10.00,2));
 
      }
 

@@ -23,13 +23,14 @@ public class ShopTest {
     @Before
       public void before() {
 
-        shop = new Shop(10, 5, 0.00);
+        shop = new Shop(10, 5, 0.00,2);
         item = new Item(1,"chocalate", 5.00, 10);
         customer = new Customer("Rajini", new Card("Master", 44, 500.0));
         shop.addItem(item);
 //        shop.addItem(new Item(2,"Bread", 2.00, 10));
         this.purchasedItems = purchasedItems;
     }
+
 
 
     @Test
@@ -40,6 +41,11 @@ public class ShopTest {
     @Test
       public void addItemTest(){
         shop.addItem(item);
+
+    }
+    @Test
+    public void getOrderItemQuantityTest(){
+        assertEquals(2, shop.getOrderItemQuantity(),0.01);
 
     }
 
@@ -75,8 +81,8 @@ public class ShopTest {
 
    @Test
      public void makeaSaleToCustomerTest(){
-       shop.makeaSaleToCustomer(item, customer);
-        assertEquals(495.0, customer.getTotalMoneyInCard());
+       shop.makeaSaleToCustomer(item, customer,shop.getOrderItemQuantity());
+        assertEquals(490.0, customer.getTotalMoneyInCard());
        assertEquals(9,item.getQuantity());
 
 
@@ -85,8 +91,8 @@ public class ShopTest {
 
     @Test
       public void giveARefundToCustomerTest(){
-        shop.makeaSaleToCustomer(item, customer);
-        shop.giveARefundToCustomer(item, customer);
+        shop.makeaSaleToCustomer(item, customer,shop.getOrderItemQuantity());
+        shop.giveARefundToCustomer(item, customer,shop.getOrderItemQuantity());
         assertEquals(500.0,customer.getTotalMoneyInCard());
         assertEquals(10,item.getQuantity());
         assertEquals(0,customer.getPurchasedItem());
@@ -96,8 +102,8 @@ public class ShopTest {
 
     @Test
       public void reportTotalIncomeTest(){
-        shop.makeaSaleToCustomer(item, customer);
-        shop.giveARefundToCustomer(item, customer);
+        shop.makeaSaleToCustomer(item, customer,shop.getOrderItemQuantity());
+        shop.giveARefundToCustomer(item, customer,shop.getOrderItemQuantity() );
         shop.reportTotalIncomeTest();
         assertEquals(5.0,shop.getShopTotalIncome());
     }
