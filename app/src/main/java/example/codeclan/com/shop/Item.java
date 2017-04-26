@@ -45,6 +45,10 @@ public class Item{
     public int getId() {
         return id;
     }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
 
     @Override
     public boolean equals(Object otherItem) {
@@ -54,9 +58,6 @@ public class Item{
     }
 
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
 
 

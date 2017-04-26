@@ -22,7 +22,7 @@ public class CustomerTest {
 
 
     @Before
-    public void before() {
+      public void before() {
         preferredCardDetails = new Card("DebitCard", 4444, 200.00);
         customer = new Customer("Rajini", preferredCardDetails);
         this.purchasedItems = purchasedItems;
@@ -30,55 +30,54 @@ public class CustomerTest {
     }
 
     @Test
-    public void getCustomerNameTest() {
+      public void getCustomerNameTest() {
         assertEquals("Rajini", customer.getCustomerName());
 
     }
 
 
     @Test
-    public void getCustomerCardTotalTest() {
+      public void getCustomerCardTotalTest() {
         assertEquals(3, customer.getTotalNumberOfPaymentDetails());
     }
 
 
     @Test
-    public void getTotalMoneyInCardTest() {
-
+      public void getTotalMoneyInCardTest() {
         assertEquals(200.00, customer.getTotalMoneyInCard());
 
     }
 
     @Test
-    public void selectPrefferedCardDetailsTest() {
+      public void selectPrefferedCardDetailsTest() {
         customer.selectPrefferedCardDetails("CreditCard");
+
         assertEquals(100.0, customer.getTotalMoneyInCard(), 0.01);
+        // assertEquals(200.00, customer.getTotalMoneyInCard(), 0.01);
     }
 
     @Test
-
-    public void buyItemTest() {
-        customer.selectPrefferedCardDetails("DebitCard");
+      public void buyItemTest() {
+        customer.selectPrefferedCardDetails("CreditCard");
         customer.buyItem(10.00, 2);
-
-
         double total = customer.getTotalMoneyInCard();
-        assertEquals(180.0, total, 0.01);
+        assertEquals(80,total,0.01) ;
+//        assertEquals(180.0, total, 0.01);
+//
+//        assertEquals(30.0,total,0.01) ;
     }
 
     @Test
-    public void getTotalPurchasedItems(){
-
-    assertEquals(1,customer.getPurchasedItem(new Item(2,"Bread", 5.00, 4)));
+      public void getTotalPurchasedItems(){
+        assertEquals(1,customer.getPurchasedItem(new Item(2,"Bread", 5.00, 4)));
     }
 
 
 
 
     @Test
-    public void refundItemTest() {
+      public void refundItemTest() {
         customer.selectPrefferedCardDetails("VisaCard");
-
         assertEquals(70.00, customer.refundItem(10.00, 2));
 
     }
