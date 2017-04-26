@@ -1,6 +1,7 @@
 package example.codeclan.com.shop;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by user on 21/04/2017.
@@ -59,27 +60,30 @@ public class Shop {
 
        if (items.contains(item)) {
            if (item.getQuantity() > 0) {
-               customer.buyItem(item.getPrice());
-               purchasedItems.add(item);
-               sales = sales + 1;
-               setShopSales(sales);
-               int newQuanty = item.getQuantity() - 1;
-               item.setQuantity(newQuanty);
+               if((purchasedItems.contains(item.getId()))){
+                   customer.buyItem(item.getPrice());
+                      int result = item .getQuantity() + 1;
 
-               items.remove(item);
+               }
+
+                  customer.buyItem(item.getPrice());
+                  purchasedItems.add(item);
+                 sales = sales + 1;
+                 setShopSales(sales);
+                 int newQuanty = item.getQuantity() - 1;
+                 item.setQuantity(newQuanty);
+
 
 
            }
            if (item.getQuantity() == 0) {
-               items.remove(item);
+                items.remove(item);
 
            }
 
        }
 
    }
-
-
     public void  giveARefundToCustomer(Item item, Customer customer) {
 
         if(purchasedItems.contains(item)) {
@@ -103,6 +107,8 @@ public class Shop {
         setShopTotalIncome(totalIncome);
 
     }
+
+
 
 }
 

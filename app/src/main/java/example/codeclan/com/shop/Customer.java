@@ -21,7 +21,6 @@ public class Customer {
 
     public Customer(String name,Card preferredCardDetails){
 
-
         this.CustomerName = name;
         paymentlist = new ArrayList<Card>();
         paymentlist.add(new Card("CreditCard",1111, 100.0)) ;
