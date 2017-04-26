@@ -49,9 +49,6 @@ public class Shop {
     public int getOrderItemQuantity() {
         return orderItemQuantity;
     }
-
-
-
     public void  setShopTotalIncome(double shopTotalIncome) {
         this.totalIncome = shopTotalIncome;
     }
@@ -62,12 +59,12 @@ public class Shop {
     }
 
 
-   public void makeaSaleToCustomer(Item item, Customer customer, int orderItemQuantity) {
+    public void makeaSaleToCustomer(Item item, Customer customer, int orderItemQuantity) {
 
-
-       if (items.contains(item)) {
+        if (items.contains(item)) {
            if (item.getQuantity() > 0) {
 
+//               double discount = orderItemQuantity > 5 ? 1.00: 0.00 ;
                customer.buyItem(item.getPrice(),orderItemQuantity);
                purchasedItems.add(item);
                sales = sales + 1;
@@ -75,12 +72,9 @@ public class Shop {
                int newQuanty = item.getQuantity() - orderItemQuantity ;
                item.setQuantity(newQuanty);
 
-
-
            }
            if (item.getQuantity() == 0) {
                 items.remove(item);
-
            }
 
        }
@@ -89,12 +83,9 @@ public class Shop {
     public void  giveARefundToCustomer(Item item, Customer customer,int orderItemQuantity) {
 
         if(purchasedItems.contains(item)) {
-
             customer.refundItem(item.getPrice(),orderItemQuantity);
             items.add(item);
-            purchasedItems.remove(item);
-
-
+             purchasedItems.remove(item) ;
             refunds = refunds + 1;
             setShopRefunds(refunds);
             int newQuanty = item.getQuantity() + orderItemQuantity;
@@ -104,7 +95,6 @@ public class Shop {
     }
 
     public void reportTotalIncomeTest() {
-
         totalIncome = sales - refunds;
         setShopTotalIncome(totalIncome);
 

@@ -17,34 +17,35 @@ public class CustomerTest {
 
     Customer customer;
     Card paymentDetails;
-    Item   purchasedItems;
+    Item purchasedItems;
     Card preferredCardDetails;
 
 
     @Before
-      public void before() {
-        preferredCardDetails  = new Card("DebitCard",4444,200.00);
+    public void before() {
+        preferredCardDetails = new Card("DebitCard", 4444, 200.00);
         customer = new Customer("Rajini", preferredCardDetails);
         this.purchasedItems = purchasedItems;
 
     }
+
     @Test
-      public void getCustomerNameTest(){
+    public void getCustomerNameTest() {
         assertEquals("Rajini", customer.getCustomerName());
 
     }
 
 
     @Test
-      public void getCustomerCardTotalTest() {
+    public void getCustomerCardTotalTest() {
         assertEquals(3, customer.getTotalNumberOfPaymentDetails());
     }
 
 
     @Test
-      public void getTotalMoneyInCardTest(){
+    public void getTotalMoneyInCardTest() {
 
-        assertEquals(200.00,customer.getTotalMoneyInCard());
+        assertEquals(200.00, customer.getTotalMoneyInCard());
 
     }
 
@@ -56,29 +57,30 @@ public class CustomerTest {
 
     @Test
 
-      public void buyItemTest(){
+    public void buyItemTest() {
         customer.selectPrefferedCardDetails("DebitCard");
-        customer.buyItem(10.00,2);
+        customer.buyItem(10.00, 2);
 
 
         double total = customer.getTotalMoneyInCard();
-        assertEquals(180.0,total,0.01);
-     }
-
-
-
-     @Test
-       public void refundItemTest(){
-         customer.selectPrefferedCardDetails("VisaCard");
-
-         assertEquals(70.00,customer.refundItem(10.00,2));
-
-     }
-
+        assertEquals(180.0, total, 0.01);
+    }
 
     @Test
     public void getTotalPurchasedItems(){
-        assertEquals(0,customer.getPurchasedItem());
+
+    assertEquals(1,customer.getPurchasedItem(new Item(2,"Bread", 5.00, 4)));
+    }
+
+
+
+
+    @Test
+    public void refundItemTest() {
+        customer.selectPrefferedCardDetails("VisaCard");
+
+        assertEquals(70.00, customer.refundItem(10.00, 2));
+
     }
 
 

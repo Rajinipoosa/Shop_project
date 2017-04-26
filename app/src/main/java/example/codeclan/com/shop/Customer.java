@@ -40,14 +40,6 @@ public class Customer {
        return paymentlist.size();
 
     }
-    public int getPurchasedItem() {
-
-        return purchasedItems.size();
-    }
-
-    public double getTotalMoneyInCard() {
-        return preferredCardDetails.getCardAmount();
-    }
 
     public void buyItem(double item_price,double item_quantity) {
         double result = 0;
@@ -59,6 +51,11 @@ public class Customer {
 
 
     }
+    public double getTotalMoneyInCard() {
+        return preferredCardDetails.getCardAmount();
+    }
+
+
 
     public double refundItem(double item_price,double item_quantity) {
         double result = 0;
@@ -66,6 +63,11 @@ public class Customer {
         preferredCardDetails.setCardAmount(result);
         return result;
     }
+    public int getPurchasedItem(Item newItem) {
+        purchasedItems.add(newItem);
+        return purchasedItems.size();
+    }
+
 
     public void selectPrefferedCardDetails(String cardtype) {
         for(Card card: paymentlist  ){
@@ -79,8 +81,6 @@ public class Customer {
         }
 
     }
-
-
 
 
 
