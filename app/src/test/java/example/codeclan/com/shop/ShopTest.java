@@ -23,11 +23,10 @@ public class ShopTest {
     @Before
       public void before() {
 
-        shop = new Shop(10, 5, 0.00,2);
+        shop = new Shop(10, 5, 0.00, 2);
         item = new Item(1,"chocalate", 5.00, 10);
         customer = new Customer("Rajini", new Card("Master", 44, 500.0));
         shop.addItem(item);
-//        shop.addItem(new Item(2,"Bread", 2.00, 10));
         this.purchasedItems = purchasedItems;
     }
 
@@ -45,7 +44,7 @@ public class ShopTest {
     }
     @Test
     public void getOrderItemQuantityTest(){
-        assertEquals(2, shop.getOrderItemQuantity(),0.01);
+        assertEquals(2, shop.getOrderItemQuantity());
 
     }
 
@@ -83,7 +82,7 @@ public class ShopTest {
      public void makeaSaleToCustomerTest(){
        shop.makeaSaleToCustomer(item, customer,shop.getOrderItemQuantity());
         assertEquals(490.0, customer.getTotalMoneyInCard());
-       assertEquals(9,item.getQuantity());
+       assertEquals(8,item.getQuantity());
 
 
 

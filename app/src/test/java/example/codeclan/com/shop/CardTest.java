@@ -9,12 +9,12 @@ import static junit.framework.Assert.assertEquals;
  * Created by user on 21/04/2017.
  */
 
-public class CardTest {
+  public class CardTest {
     Card card;
 
       @Before
-      public void before(){
-        card = new Card("DebitCard", 4444,200.00);
+        public void before(){
+         card = new Card("DebitCard", 4444,200.00);
 
       }
 
@@ -28,7 +28,7 @@ public class CardTest {
         assertEquals(4444, card.getCardNumber());
       }
       @Test
-          public void getCardAmountTest(){
+        public void getCardAmountTest(){
           assertEquals(200.00,card.getCardAmount(),0.01);
       }
 

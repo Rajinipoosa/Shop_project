@@ -14,15 +14,15 @@ public class Shop {
     private int sales;
     private int refunds;
     private double totalIncome;
-    private double orderItemQuantity;
+    private int orderItemQuantity;
 
-    public Shop(Integer sales, Integer refunds, Double totalIncome,double orderItemQuantity) {
+    public Shop(Integer sales, Integer refunds, Double totalIncome,int orderItemQuantity) {
 
         this.items = new ArrayList<Item>();
         this.sales = sales;
         this.refunds = refunds;
         this.totalIncome = totalIncome;
-      this.purchasedItems = new ArrayList<Item>();
+        this.purchasedItems = new ArrayList<Item>();
         this.orderItemQuantity = orderItemQuantity;
     }
 
@@ -46,7 +46,7 @@ public class Shop {
         return totalIncome;
     }
 
-    public double getOrderItemQuantity() {
+    public int getOrderItemQuantity() {
         return orderItemQuantity;
     }
 
@@ -62,7 +62,7 @@ public class Shop {
     }
 
 
-   public void makeaSaleToCustomer(Item item, Customer customer, double orderItemQuantity) {
+   public void makeaSaleToCustomer(Item item, Customer customer, int orderItemQuantity) {
 
 
        if (items.contains(item)) {
@@ -72,7 +72,7 @@ public class Shop {
                purchasedItems.add(item);
                sales = sales + 1;
                setShopSales(sales);
-               int newQuanty = item.getQuantity() - 1;
+               int newQuanty = item.getQuantity() - orderItemQuantity ;
                item.setQuantity(newQuanty);
 
 
@@ -86,7 +86,7 @@ public class Shop {
        }
 
    }
-    public void  giveARefundToCustomer(Item item, Customer customer,double orderItemQuantity) {
+    public void  giveARefundToCustomer(Item item, Customer customer,int orderItemQuantity) {
 
         if(purchasedItems.contains(item)) {
 
@@ -97,7 +97,7 @@ public class Shop {
 
             refunds = refunds + 1;
             setShopRefunds(refunds);
-            int newQuanty = item.getQuantity() + 1;
+            int newQuanty = item.getQuantity() + orderItemQuantity;
             item.setQuantity(newQuanty);
 
         }
