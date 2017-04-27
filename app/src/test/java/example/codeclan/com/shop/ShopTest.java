@@ -76,7 +76,7 @@ public class ShopTest {
 
    @Test
       public void makeaSaleToCustomerTest(){
-         assertEquals(10,item.getQuantity());
+
          shop.makeaSaleToCustomer(item, customer,shop.getOrderItemQuantity());
          assertEquals(490.0, customer.getTotalMoneyInCard());
          assertEquals(8,item.getQuantity());
@@ -86,10 +86,8 @@ public class ShopTest {
 
     @Test
       public void giveARefundToCustomerTest(){
-        customer.selectPrefferedCardDetails("CreditCard");
         shop.makeaSaleToCustomer(item, customer,shop.getOrderItemQuantity());
         assertEquals(90.0,customer.getTotalMoneyInCard());
-        assertEquals(8,item.getQuantity());
         shop.giveARefundToCustomer(item, customer,shop.getOrderItemQuantity());
         assertEquals(100.0,customer.getTotalMoneyInCard());
         assertEquals(10,item.getQuantity());
